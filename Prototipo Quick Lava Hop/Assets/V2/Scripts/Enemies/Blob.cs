@@ -92,7 +92,6 @@ public class Blob : MonoBehaviour
         visionRange.enabled = false;
         deathBox.enabled = true;
         triggered = true;
-        targetTxtObject.text = keyToInput.ToString();
         targetTxtObject.enabled = true;
     }
 
@@ -101,6 +100,8 @@ public class Blob : MonoBehaviour
         if (triggered)
         {
             rb.velocity = velocity;
+            if (targetTxtObject.text == "" || targetTxtObject.text == " ")
+                targetTxtObject.text = keyToInput.ToString();
 
             if (Input.GetKeyDown(keyToInput))
             {
@@ -112,6 +113,7 @@ public class Blob : MonoBehaviour
 
     private void Death()
     {
+        targetTxtObject.text = "";
         deathBox.enabled = false;
         triggered = false;
         anim.Play("Death");

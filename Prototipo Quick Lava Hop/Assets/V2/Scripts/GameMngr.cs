@@ -1,68 +1,54 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameMngr : MonoBehaviour
 {
     // Vars
-    [SerializeField] private float timerSeconds;
-    [SerializeField] private Image img;
-    private Animator imgAnim;
-    [SerializeField] private TextMeshProUGUI timeTxt;
     [SerializeField] private GameObject plr;
-    [SerializeField] private Camera cam;
+    [SerializeField] private CameraShake cam;
+    [SerializeField] private TextMeshProUGUI collectablesText;
+
+    public byte LvlCollectables { get; private set; }
+    public byte PlayerCollectables { get; private set; }
 
     public Vector3 CheckPoint { get; set; }
+    
+    //public static GameMngr Instance { get; private set; }
 
-    private float fixedTimeOnDeath;
-
-    private void Start()
-    {
-        //DontDestroyOnLoad(gameObject);
-        CheckPoint = new Vector3(7.494f, -3.5f, 0.0f);
-        fixedTimeOnDeath = 0;
-        imgAnim = img.GetComponent<Animator>();
-    }
-
+    // When script is loaded
     private void Awake()
     {
+        CheckPoint = new Vector3(7.494f, -3.5f, 0.0f);
+
+        //If no gamemngr ever existed, we are it.
+        //if (Instance == null)
+        //{
+        //    Instance = this;
+            DontDestroyOnLoad(this);
+        //}
+        //else if (this != Instance)
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
+
+    // Each time scene is loaded
+    private void Start()
+    {
+        LvlCollectables = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        // Math for time to percentage
-        float time =
-            Mathf.Floor(100 -
-            ((Time.fixedTime - fixedTimeOnDeath) * 100 / timerSeconds));
-
-        // Visual cues
-        img.fillAmount -= Time.deltaTime / timerSeconds;
-        timeTxt.text = $"{time.ToString()} %";
-
-        // Timer ended
-        if (time <= 0)
-        {
-            time = 0;
-            img.fillAmount = 1;
-            imgAnim.SetBool("Warning", false);
-
-            // Disable player
-            //GameOver();
-            RestartLvl();
-        }
-        else if (time <= 30)
-        {
-            imgAnim.SetBool("Warning", true);
-        }
     }
 
     public void CameraShake(float duration, float ammount)
     {
-        cam.GetComponent<CameraShake>().Shake(duration, ammount);
+        cam.Shake(duration, ammount);
     }
 
     // Game over, very explicit
@@ -82,12 +68,22 @@ public class GameMngr : MonoBehaviour
     // Wait death anim to complete
     private IEnumerator Restart()
     {
-        fixedTimeOnDeath = Time.fixedTime;
         Time.timeScale = 1;
-        yield return new WaitForSeconds(0.2f);
-
+        yield return new WaitForSeconds(0.3f);
+        // To do after
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
-        // To do after
+    }
+
+    private void NextLvl()
+    {
+        PlayerCollectables = LvlCollectables;
+        LvlCollectables = 0;
+    }
+
+    public void CollectablePickup()
+    {
+        LvlCollectables ++;
+        collectablesText.text = LvlCollectables.ToString();
     }
 }
