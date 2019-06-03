@@ -27,7 +27,7 @@ public class GameMngr : MonoBehaviour
         //if (Instance == null)
         //{
         //    Instance = this;
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         //}
         //else if (this != Instance)
         //{
