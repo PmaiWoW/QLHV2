@@ -21,7 +21,7 @@ public class GameMngr : MonoBehaviour
     // When script is loaded
     private void Awake()
     {
-        CheckPoint = new Vector3(7.494f, -3.5f, 0.0f);
+        CheckPoint = plr.transform.position;
 
         //If no gamemngr ever existed, we are it.
         //if (Instance == null)
