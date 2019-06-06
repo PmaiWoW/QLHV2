@@ -723,6 +723,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8465942760733334392, guid: 000e534aa2a3f424096a21fdca36781b,
+        type: 3}
+      propertyPath: speedUpValue
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000e534aa2a3f424096a21fdca36781b, type: 3}
 --- !u!4 &298433416 stripped
@@ -1204,6 +1209,15 @@ Tilemap:
       m_ObjectToInstantiate: {fileID: 0}
       m_TileFlags: 1
       m_ColliderType: 1
+  - first: {x: 6, y: -2, z: 0}
+    second:
+      m_TileIndex: 10
+      m_TileSpriteIndex: 9
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_ObjectToInstantiate: {fileID: 0}
+      m_TileFlags: 1
+      m_ColliderType: 1
   - first: {x: -8, y: -1, z: 0}
     second:
       m_TileIndex: 10
@@ -1478,7 +1492,7 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 40
+  - m_RefCount: 41
     m_Data: {fileID: 11400000, guid: bf689d81fc798c448b649699e84fadd4, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -1499,12 +1513,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 40
+  - m_RefCount: 41
     m_Data: {fileID: 21300412, guid: 8b6373963f34f3144aa0861884d51343, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300320, guid: 8b6373963f34f3144aa0861884d51343, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 41
+  - m_RefCount: 42
     m_Data:
       e00: 1
       e01: 0
@@ -1523,7 +1537,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 41
+  - m_RefCount: 42
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1664,6 +1678,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FlipX
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8465942760733334392, guid: 000e534aa2a3f424096a21fdca36781b,
+        type: 3}
+      propertyPath: speedUpValue
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000e534aa2a3f424096a21fdca36781b, type: 3}
@@ -3857,6 +3876,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8465942760733334392, guid: 000e534aa2a3f424096a21fdca36781b,
+        type: 3}
+      propertyPath: speedUpValue
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000e534aa2a3f424096a21fdca36781b, type: 3}
 --- !u!1 &839712015
@@ -4458,7 +4482,7 @@ PrefabInstance:
     - target: {fileID: 8465942760733334392, guid: 000e534aa2a3f424096a21fdca36781b,
         type: 3}
       propertyPath: speedUpValue
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000e534aa2a3f424096a21fdca36781b, type: 3}
@@ -5111,7 +5135,7 @@ PrefabInstance:
     - target: {fileID: 8465942760733334392, guid: 000e534aa2a3f424096a21fdca36781b,
         type: 3}
       propertyPath: speedUpValue
-      value: 0.4
+      value: 0.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 000e534aa2a3f424096a21fdca36781b, type: 3}
